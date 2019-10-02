@@ -290,8 +290,6 @@ int main(int argc, char* argv[])
 
 		memcpy(&captured_packet, packet, sizeof(captured_packet));
 
-		printf("%d, %d, %d ,%d", (captured_packet.eth.eth_type == htons(ETH_P_ARP)), (captured_packet.arph.arp_opr == htons(ARPOP_REPLY)), (ip_comparison(captured_packet.arph.arp_sipaddr, target_ip)), ip_comparison(captured_packet.arph.arp_tproaddr, my_ip));
-
 		if (captured_packet.eth.eth_type == htons(ETH_P_ARP) && captured_packet.arph.arp_opr == htons(ARPOP_REPLY) && ip_comparison(captured_packet.arph.arp_tproaddr,my_ip))
 
 		{
